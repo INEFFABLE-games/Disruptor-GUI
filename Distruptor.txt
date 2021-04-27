@@ -1,0 +1,739 @@
+local tws = game:GetService("TweenService")
+
+local intgui=Instance.new"ScreenGui"
+intgui.ZIndexBehavior=1
+local intrframe=Instance.new"Frame"
+intrframe.Size=UDim2.new(0.34,0,0,0)
+intrframe.BorderColor3=Color3.fromRGB(49,49,49)
+intrframe.Position=UDim2.new(0.3438031,0,0.3452088,0)
+intrframe.BorderSizePixel=10
+intrframe.BackgroundColor3=Color3.fromRGB(58,58,58)
+intrframe.Parent=intgui
+local Guiname=Instance.new"TextLabel"
+Guiname.Name="lab1"
+Guiname.Size=UDim2.new(0,200,0,50)
+Guiname.BackgroundTransparency=1
+Guiname.Position=UDim2.new(0.2458165,0,0.0608469,0)
+Guiname.BackgroundColor3=Color3.fromRGB(255,255,255)
+Guiname.FontSize=11
+Guiname.TextSize=30
+Guiname.TextColor3=Color3.fromRGB(171,0,31)
+Guiname.Text="Disruptor"
+Guiname.Font=14
+Guiname.Parent=intrframe
+Guiname.TextTransparency = 1
+local owner=Instance.new"TextLabel"
+owner.Name="lab2"
+owner.Size=UDim2.new(0,200,0,50)
+owner.BackgroundTransparency=1
+owner.Position=UDim2.new(0.6009802,0,0.8148576,0)
+owner.BackgroundColor3=Color3.fromRGB(255,255,255)
+owner.FontSize=6
+owner.TextSize=15
+owner.TextColor3=Color3.fromRGB(171,0,31)
+owner.Text="Made by FVKOTO"
+owner.Font=14
+owner.Parent=intrframe
+owner.TextTransparency = 1
+intgui.Parent=game:GetService("CoreGui")
+
+function load()
+
+local a=Instance.new"ScreenGui"
+a.Name= math.random(-999999,999999)
+a.ZIndexBehavior=1
+local b=Instance.new"Frame"
+b.Name="BG"
+b.Draggable = true
+b.Selectable=true
+b.Size=UDim2.new(0.27,0,0.2,0)
+b.Position=UDim2.new(0.0121655,0,0.3415233,0)
+b.Active=true
+b.BackgroundColor3=Color3.fromRGB(67,67,67)
+b.Parent=a
+local c=Instance.new"Frame"
+c.Name="Label"
+c.Selectable=true
+c.Size=UDim2.new(0.95,0,0.9,0)
+c.Position=UDim2.new(0.0243309,0,0.0454545,0)
+c.Active=true
+c.BackgroundColor3=Color3.fromRGB(36,36,36)
+c.Parent=b
+local d=Instance.new"ScrollingFrame"
+d.Name="AllFruits"
+d.Size=UDim2.new(0,138,0,129)
+d.BackgroundTransparency=1
+d.Position=UDim2.new(0.0273189,0,0.0614251,0)
+d.Active=true
+d.BackgroundColor3=Color3.fromRGB(255,255,255)
+d.ScrollBarImageColor3=Color3.fromRGB(129,129,129)
+d.TopImage=""
+d.BottomImage=""
+d.Parent=c
+local e=Instance.new"TextButton"
+e.Name="1"
+e.Size=UDim2.new(0.8,0,0.05,0)
+e.BackgroundTransparency=1
+e.BackgroundColor3=Color3.fromRGB(255,255,255)
+e.FontSize=5
+e.TextSize=14
+e.TextColor3=Color3.fromRGB(193,193,193)
+e.Text=""
+e.TextWrap=true
+e.Font=14
+e.TextWrapped=true
+e.TextScaled=true
+e.Parent=d
+local f=Instance.new"BoolValue"
+f.Name="IsFinded"
+f.Parent=e
+local g=Instance.new"ObjectValue"
+g.Name="Object"
+g.Parent=e
+
+local lserver = Instance.new('TextButton')
+lserver.Parent = a.BG.Label
+lserver.Name = "LeaveServer"
+lserver.Text = "Leave Server"
+--lserver.BackgroundColor = ColorSequence(Color3.new(88, 88, 88))
+lserver.Position = UDim2.new(-0.029, 0,1.108, 0)
+lserver.Size = UDim2.new(0.4, 0,0.1, 0)
+lserver.Font = "Fantasy"
+lserver.TextSize = 17
+
+local CheckAttempts = Instance.new('TextButton')
+CheckAttempts.Parent = a.BG.Label
+CheckAttempts.Name = "CheckAttempts"
+CheckAttempts.Text = "Check attempts"
+CheckAttempts.Position = UDim2.new(0.529, 0,1.108, 0)
+CheckAttempts.Size = UDim2.new(0.4, 0,0.1, 0)
+CheckAttempts.Font = "Fantasy"
+CheckAttempts.TextSize = 17
+
+local cross=Instance.new"ImageButton"
+cross.Size=UDim2.new(0,15,0,15)
+cross.Position=UDim2.new(0.9982291,0,-0.0061425,0)
+cross.BorderSizePixel=0
+cross.BackgroundColor3=Color3.fromRGB(25,25,25)
+cross.ImageColor3=Color3.fromRGB(255,49,49)
+cross.Image="http://www.roblox.com/asset/?id=261113606"
+cross.Parent=a.BG
+
+cross.MouseButton1Click:Connect(function()
+
+	a:Destroy()
+
+end)
+
+lserver.MouseButton1Click:Connect(function()
+
+	game:GetService('TeleportService'):Teleport(1730877806)
+
+end)
+
+local Debris = game:GetService("Debris")
+
+CheckAttempts.MouseButton1Click:Connect(function()
+
+	local attempts = game.ReplicatedStorage["Stats"..(game.Players.LocalPlayer.Name)].Stats.Attempts.Value
+
+	local info=Instance.new"TextLabel"
+	info.Size=UDim2.new(0.5,0,0.15,0)
+	info.BorderColor3=Color3.fromRGB(27,27,27)
+	info.Position=UDim2.new(1.5,0,0.4,0)
+	info.BorderSizePixel=5
+	info.BackgroundColor3=Color3.fromRGB(49,49,49)
+	info.FontSize=10
+	info.TextSize=25
+	info.TextColor3=Color3.fromRGB(167,0,2)
+	info.Text="Attempts: 0"
+	info.Font=3
+	info.Parent = a.BG
+
+	if(attempts > 0) then
+		info.TextColor3 = Color3.new(1, 0, 0)
+	else
+		info.TextColor3 = Color3.new(0, 1, 0)
+	end
+	info.Text = "Attempts: "..attempts
+
+	Debris:AddItem(info, 2)
+
+end)
+
+-----------
+
+e.MouseButton1Click:Connect(function()
+
+	local obj = a.BG.Label.AllFruits:WaitForChild("1"):WaitForChild("Object").Value
+
+	a.BG.Label.Selected.Value = obj
+	a.BG.Label.name.Text = "DF Name: "..obj.Name
+	a.BG.Label.owner.Text = "Owner: "..obj:FindFirstChild("Owner").Value
+
+	a.BG.Label.Tp.Visible = true
+	a.BG.Label.MakeBeam.Visible = true
+
+end)
+
+-----------
+
+local i=Instance.new"TextButton"
+i.Name="2"
+i.Size=UDim2.new(0.8,0,0.05,0)
+i.BackgroundTransparency=1
+i.Position=UDim2.new(0,0,0.05,0)
+i.BackgroundColor3=Color3.fromRGB(255,255,255)
+i.FontSize=5
+i.TextSize=14
+i.TextColor3=Color3.fromRGB(193,193,193)
+i.Text=""
+i.TextWrap=true
+i.Font=14
+i.TextWrapped=true
+i.TextScaled=true
+i.Parent=d
+local j=Instance.new"BoolValue"
+j.Name="IsFinded"
+j.Parent=i
+local k=Instance.new"ObjectValue"
+k.Name="Object"
+k.Parent=i
+
+----------------
+
+i.MouseButton1Click:Connect(function()
+
+	local obj = a.BG.Label.AllFruits:WaitForChild("2"):WaitForChild("Object").Value
+
+	a.BG.Label.Selected.Value = obj
+	a.BG.Label.name.Text = "DF Name: "..obj.Name
+	a.BG.Label.owner.Text = "Owner: "..obj:FindFirstChild("Owner").Value
+
+	a.BG.Label.Tp.Visible = true
+	a.BG.Label.MakeBeam.Visible = true
+
+end)
+
+---------------
+
+local m=Instance.new"TextButton"
+m.Name="3"
+m.Size=UDim2.new(0.8,0,0.05,0)
+m.BackgroundTransparency=1
+m.Position=UDim2.new(0,0,0.1,0)
+m.BackgroundColor3=Color3.fromRGB(255,255,255)
+m.FontSize=5
+m.TextSize=14
+m.TextColor3=Color3.fromRGB(193,193,193)
+m.Text=""
+m.TextWrap=true
+m.Font=14
+m.TextWrapped=true
+m.TextScaled=true
+m.Parent=d
+local n=Instance.new"BoolValue"
+n.Name="IsFinded"
+n.Parent=m
+local o=Instance.new"ObjectValue"
+o.Name="Object"
+o.Parent=m
+
+--------------
+
+m.MouseButton1Click:Connect(function()
+
+	local obj = a.BG.Label.AllFruits:WaitForChild("3"):WaitForChild("Object").Value
+
+	a.BG.Label.Selected.Value = obj
+	a.BG.Label.name.Text = "DF Name: "..obj.Name
+	a.BG.Label.owner.Text = "Owner: "..obj:FindFirstChild("Owner").Value
+
+	a.BG.Label.Tp.Visible = true
+	a.BG.Label.MakeBeam.Visible = true
+
+end)
+
+--------------
+
+local q=Instance.new"TextButton"
+q.Name="4"
+q.Size=UDim2.new(0.8,0,0.05,0)
+q.BackgroundTransparency=1
+q.Position=UDim2.new(0,0,0.15,0)
+q.BackgroundColor3=Color3.fromRGB(255,255,255)
+q.FontSize=5
+q.TextSize=14
+q.TextColor3=Color3.fromRGB(193,193,193)
+q.Text=""
+q.TextWrap=true
+q.Font=14
+q.TextWrapped=true
+q.TextScaled=true
+q.Parent=d
+local r=Instance.new"BoolValue"
+r.Name="IsFinded"
+r.Parent=q
+local s=Instance.new"ObjectValue"
+s.Name="Object"
+s.Parent=q
+
+-----------------------
+
+q.MouseButton1Click:Connect(function()
+
+	local obj = a.BG.Label.AllFruits:WaitForChild("4"):WaitForChild("Object").Value
+
+	a.BG.Label.Selected.Value = obj
+	a.BG.Label.name.Text = "DF Name: "..obj.Name
+	a.BG.Label.owner.Text = "Owner: "..obj:FindFirstChild("Owner").Value
+
+	a.BG.Label.Tp.Visible = true
+	a.BG.Label.MakeBeam.Visible = true
+
+end)
+
+-----------------------
+
+local u=Instance.new"TextButton"
+u.Name="5"
+u.Size=UDim2.new(0.8,0,0.05,0)
+u.BackgroundTransparency=1
+u.Position=UDim2.new(0,0,0.2,0)
+u.BackgroundColor3=Color3.fromRGB(255,255,255)
+u.FontSize=5
+u.TextSize=14
+u.TextColor3=Color3.fromRGB(193,193,193)
+u.Text=""
+u.TextWrap=true
+u.Font=14
+u.TextWrapped=true
+u.TextScaled=true
+u.Parent=d
+local v=Instance.new"BoolValue"
+v.Name="IsFinded"
+v.Parent=u
+local w=Instance.new"ObjectValue"
+w.Name="Object"
+w.Parent=u
+
+
+u.MouseButton1Click:Connect(function()
+
+	local obj = a.BG.Label.AllFruits:WaitForChild("5"):WaitForChild("Object").Value
+
+	a.BG.Label.Selected.Value = obj
+	a.BG.Label.name.Text = "DF Name: "..obj.Name
+	a.BG.Label.owner.Text = "Owner: "..obj:FindFirstChild("Owner").Value
+
+	a.BG.Label.Tp.Visible = true
+	a.BG.Label.MakeBeam.Visible = true
+end)
+
+
+local y=Instance.new"TextButton"
+y.Name="6"
+y.Size=UDim2.new(0.8,0,0.05,0)
+y.BackgroundTransparency=1
+y.Position=UDim2.new(0,0,0.25,0)
+y.BackgroundColor3=Color3.fromRGB(255,255,255)
+y.FontSize=5
+y.TextSize=14
+y.TextColor3=Color3.fromRGB(193,193,193)
+y.Text=""
+y.TextWrap=true
+y.Font=14
+y.TextWrapped=true
+y.TextScaled=true
+y.Parent=d
+local z=Instance.new"BoolValue"
+z.Name="IsFinded"
+z.Parent=y
+local A=Instance.new"ObjectValue"
+A.Name="Object"
+A.Parent=y
+
+
+y.MouseButton1Click:Connect(function()
+
+	local obj = a.BG.Label.AllFruits:WaitForChild("6"):WaitForChild("Object").Value
+
+	a.BG.Label.Selected.Value = obj
+	a.BG.Label.name.Text = "DF Name: "..obj.Name
+	a.BG.Label.owner.Text = "Owner: "..obj:FindFirstChild("Owner").Value
+
+	a.BG.Label.Tp.Visible = true
+	a.BG.Label.MakeBeam.Visible = true
+
+end)
+
+
+local C=Instance.new"TextButton"
+C.Name="7"
+C.Size=UDim2.new(0.8,0,0.05,0)
+C.BackgroundTransparency=1
+C.Position=UDim2.new(0,0,0.3,0)
+C.BackgroundColor3=Color3.fromRGB(255,255,255)
+C.FontSize=5
+C.TextSize=14
+C.TextColor3=Color3.fromRGB(193,193,193)
+C.Text=""
+C.TextWrap=true
+C.Font=14
+C.TextWrapped=true
+C.TextScaled=true
+C.Parent=d
+local D=Instance.new"BoolValue"
+D.Name="IsFinded"
+D.Parent=C
+local E=Instance.new"ObjectValue"
+E.Name="Object"
+E.Parent=C
+
+
+C.MouseButton1Click:Connect(function()
+
+	local obj = a.BG.Label.AllFruits:WaitForChild("7"):WaitForChild("Object").Value
+
+	a.BG.Label.Selected.Value = obj
+	a.BG.Label.name.Text = "DF Name: "..obj.Name
+	a.BG.Label.owner.Text = "Owner: "..obj:FindFirstChild("Owner").Value
+
+	a.BG.Label.Tp.Visible = true
+	a.BG.Label.MakeBeam.Visible = true
+
+end)
+
+
+local G=Instance.new"TextButton"
+G.Name="8"
+G.Size=UDim2.new(0.8,0,0.05,0)
+G.BackgroundTransparency=1
+G.Position=UDim2.new(0,0,0.35,0)
+G.BackgroundColor3=Color3.fromRGB(255,255,255)
+G.FontSize=5
+G.TextSize=14
+G.TextColor3=Color3.fromRGB(193,193,193)
+G.Text=""
+G.TextWrap=true
+G.Font=14
+G.TextWrapped=true
+G.TextScaled=true
+G.Parent=d
+local H=Instance.new"BoolValue"
+H.Name="IsFinded"
+H.Parent=G
+local I=Instance.new"ObjectValue"
+I.Name="Object"
+I.Parent=G
+
+
+G.MouseButton1Click:Connect(function()
+
+	local obj = a.BG.Label.AllFruits:WaitForChild("8"):WaitForChild("Object").Value
+
+	a.BG.Label.Selected.Value = obj
+	a.BG.Label.name.Text = "DF Name: "..obj.Name
+	a.BG.Label.owner.Text = "Owner: "..obj:FindFirstChild("Owner").Value
+
+	a.BG.Label.Tp.Visible = true
+	a.BG.Label.MakeBeam.Visible = true
+
+end)
+
+
+local K=Instance.new"TextButton"
+K.Name="9"
+K.Size=UDim2.new(0.8,0,0.05,0)
+K.BackgroundTransparency=1
+K.Position=UDim2.new(0,0,0.4,0)
+K.BackgroundColor3=Color3.fromRGB(255,255,255)
+K.FontSize=5
+K.TextSize=14
+K.TextColor3=Color3.fromRGB(193,193,193)
+K.Text=""
+K.TextWrap=true
+K.Font=14
+K.TextWrapped=true
+K.TextScaled=true
+K.Parent=d
+local L=Instance.new"BoolValue"
+L.Name="IsFinded"
+L.Parent=K
+local M=Instance.new"ObjectValue"
+M.Name="Object"
+M.Parent=K
+
+
+K.MouseButton1Click:Connect(function()
+
+	local obj = a.BG.Label.AllFruits:WaitForChild("9"):WaitForChild("Object").Value
+
+	a.BG.Label.Selected.Value = obj
+	a.BG.Label.name.Text = "DF Name: "..obj.Name
+	a.BG.Label.owner.Text = "Owner: "..obj:FindFirstChild("Owner").Value
+
+	a.BG.Label.Tp.Visible = true
+	a.BG.Label.MakeBeam.Visible = true
+
+end)
+
+
+local O=Instance.new"TextButton"
+O.Name="CheckDF"
+O.Size=UDim2.new(0.4,0,0.15,0)
+O.Position=UDim2.new(0.5293038,0,0.7985258,0)
+O.BackgroundColor3=Color3.fromRGB(211,211,211)
+O.FontSize=5
+O.TextSize=14
+O.TextColor3=Color3.fromRGB(227,0,117)
+O.Text="Check DF"
+O.TextWrap=true
+O.Font=14
+O.TextWrapped=true
+O.TextScaled=true
+O.Parent=c
+
+local function findDF()
+	local ifdfhere = true
+
+	for x,z in pairs(a.BG.Label.AllFruits:GetChildren()) do
+
+		local obj = z:FindFirstChild("Object")
+		obj.Value = nil
+		z.Text = ""
+		z.BackgroundTransparency  = 1
+
+	end
+
+	for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+		if v.ClassName == "Tool" then
+			if v:FindFirstChild("Owner") and v:FindFirstChild("FruitEater") then
+
+				local df = v
+
+				print("DF: ", df)
+				print("Owner: ", df:FindFirstChild("Owner").Value)
+
+				for x,z in pairs(a.BG.Label.AllFruits:GetChildren()) do
+
+					local obj = z:FindFirstChild("Object")
+
+					if obj.value == df then
+						break
+					end
+
+					if obj.value == nil then
+
+						obj.Value = df
+						z.Text = df.Name
+						z.BackgroundTransparency  = 0.95
+
+						break
+
+					end
+
+				end
+
+			end
+		else
+			ifdfhere = false
+		end
+	end
+	if ifdfhere == false then
+		print("No DF!")
+	end
+end
+
+O.MouseButton1Click:Connect(function()
+
+	findDF()
+
+end)
+
+local Q=Instance.new"TextButton"
+Q.Name="MakeBeam"
+Q.Visible=true
+Q.Size=UDim2.new(0.4,0,0.1,0)
+Q.Position=UDim2.new(0.5293038,0,0.6483756,0)
+Q.BackgroundColor3=Color3.fromRGB(226,226,226)
+Q.FontSize=5
+Q.TextSize=14
+Q.TextColor3=Color3.fromRGB(227,0,117)
+Q.Text="On/Off Beam"
+Q.TextWrap=true
+Q.Font=14
+Q.TextWrapped=true
+Q.TextScaled=true
+Q.Parent=c
+
+local function MakeBeam()
+	local df = a.BG.Label.Selected.Value
+
+	if(df ~= nil) then
+		if(df:FindFirstChild("preHandle"):FindFirstChild("beam") == nil)then
+
+			local beam = Instance.new('Beam')
+			local att1 = Instance.new('Attachment')
+			local att2 = Instance.new('Attachment')
+
+			beam.Parent = df:FindFirstChild("preHandle")
+			beam.Name = "beam"
+			beam.FaceCamera= true
+			beam.Color = ColorSequence.new(Color3.new(1, 0, 0))
+			att1.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+			att2.Parent = df:FindFirstChild("preHandle")
+
+
+			beam.Attachment0 = att1
+			beam.Attachment1 = att2
+			beam.Texture = "http://www.roblox.com/asset/?id=5320401463"
+			beam.Transparency = 0
+
+		else if(df:FindFirstChild("preHandle"):FindFirstChild("beam") ~= nil) then
+				df:FindFirstChild("preHandle"):FindFirstChild("beam"):Destroy()
+				df:FindFirstChild("preHandle"):FindFirstChild("Attachment"):Destroy()
+			end
+
+		end
+
+	end
+end
+
+Q.MouseButton1Click:Connect(function()
+
+	MakeBeam()
+
+end)
+
+
+local S=Instance.new"ObjectValue"
+S.Name="Selected"
+S.Parent=c
+local T=Instance.new"TextLabel"
+T.Name="name"
+T.Size=UDim2.new(0.4,0,0.15,0)
+T.BackgroundTransparency=1
+T.Position=UDim2.new(0.5293038,0,0.047775,0)
+T.BackgroundColor3=Color3.fromRGB(255,255,255)
+T.FontSize=5
+T.TextSize=14
+T.TextColor3=Color3.fromRGB(204,139,85)
+T.Text="Fruit name:"
+T.Font=14
+T.TextXAlignment=0
+T.Parent=c
+local U=Instance.new"TextLabel"
+U.Name="owner"
+U.Size=UDim2.new(0.4,0,0.15,0)
+U.BackgroundTransparency=1
+U.Position=UDim2.new(0.5293038,0,0.1911002,0)
+U.BackgroundColor3=Color3.fromRGB(255,255,255)
+U.FontSize=5
+U.TextSize=14
+U.TextColor3=Color3.fromRGB(204,139,85)
+U.Text="Owner:"
+U.Font=14
+U.TextXAlignment=0
+U.Parent=c
+local V=Instance.new"TextButton"
+V.Name="Tp"
+V.Visible=true
+V.Size=UDim2.new(0.4,0,0.1,0)
+V.Position=UDim2.new(0.5293038,0,0.5050505,0)
+V.BackgroundColor3=Color3.fromRGB(226,226,226)
+V.FontSize=5
+V.TextSize=14
+V.TextColor3=Color3.fromRGB(227,0,117)
+V.Text="Take me there!"
+V.TextWrap=true
+V.Font=14
+V.TextWrapped=true
+V.TextScaled=true
+V.Parent=c
+
+
+function To() -- this is all walmort's.
+	local position = a.BG.Label.Selected.Value:FindFirstChild("preHandle").Position
+	local Chr = game.Players.LocalPlayer.Character
+	if Chr ~= nil then
+		local ts = game:GetService("TweenService")
+		local char = game.Players.LocalPlayer.Character
+		local hm = char.HumanoidRootPart
+		local dist = (hm.Position - position).magnitude
+		_G.tweenspeed = dist/100
+		local ti = TweenInfo.new(tonumber(_G.tweenspeed), Enum.EasingStyle.Linear)
+		local tp = {CFrame = CFrame.new(position)}
+		ts:Create(hm, ti, tp):Play()
+	end
+end
+
+
+
+V.MouseButton1Click:Connect(function()
+
+	To()
+
+end)
+
+
+local X=Instance.new"ImageButton"
+X.Size=UDim2.new(0,55,0,7)
+X.Position=UDim2.new(0.7980536,0,-0.0061425,0)
+X.BorderSizePixel=0
+X.BackgroundColor3=Color3.fromRGB(25,0,0)
+X.ImageColor3=Color3.fromRGB(255,149,130)
+X.Image="rbxasset://textures/ui/GuiImagePlaceholder.png"
+X.Parent=b
+
+
+local opened = true
+
+X.MouseButton1Click:Connect(function()
+	local tws = game:GetService("TweenService")
+	local tweenInfo = TweenInfo.new(
+		.1, -- Time
+		Enum.EasingStyle.Linear, -- EasingStyle
+		Enum.EasingDirection.Out, -- EasingDirection
+		0, -- RepeatCount (when less than zero the tween will loop indefinitely)
+		false, -- Reverses (tween will reverse once reaching it's goal)
+		0 -- DelayTime
+	)
+	if(opened)then
+		tws:Create(a.BG,tweenInfo, {Size = UDim2.new(0.27, 0,0.01, 0)}):Play()
+		a.BG.Label.Visible = false
+		opened = false		
+	else 
+		tws:Create(a.BG,tweenInfo, {Size = UDim2.new(0.27,0,0.2,0)}):Play()
+		a.BG.Label.Visible = true
+		opened = true
+	end
+
+end)
+
+
+a.Parent=game:GetService("CoreGui")
+	
+end
+	
+function Intro()
+
+	tws:Create(intrframe,TweenInfo.new(1.5,Enum.EasingStyle.Quint,Enum.EasingDirection.Out,0,false,0),{Size = UDim2.new(0.34, 0,0.23, 0)}):Play()
+	tws:Create(Guiname,TweenInfo.new(1,Enum.EasingStyle.Quint,Enum.EasingDirection.Out,0,false,0),{TextTransparency = 0}):Play()
+	tws:Create(owner,TweenInfo.new(1,Enum.EasingStyle.Quint,Enum.EasingDirection.Out,0,false,0),{TextTransparency = 0}):Play()
+	wait(2)
+	tws:Create(intrframe,TweenInfo.new(1,Enum.EasingStyle.Quint,Enum.EasingDirection.Out,0,false,0),{Size = UDim2.new(0.34, 0,0, 0)}):Play()
+	tws:Create(Guiname,TweenInfo.new(1,Enum.EasingStyle.Quint,Enum.EasingDirection.Out,0,false,0),{TextTransparency = 1}):Play()
+	tws:Create(owner,TweenInfo.new(1,Enum.EasingStyle.Quint,Enum.EasingDirection.Out,0,false,0),{TextTransparency = 1}):Play()
+	wait(1)
+	tws:Create(intrframe,TweenInfo.new(1,Enum.EasingStyle.Quint,Enum.EasingDirection.Out,0,false,0),{Size = UDim2.new(0, 0,0, 0)}):Play()
+
+	wait(1)
+
+	intgui:Destroy()
+
+	load()
+
+end
+
+Intro()
